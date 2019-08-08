@@ -12,14 +12,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity(name="cabDriver")
 public class Driver implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
- private String did;
-	private String dpass;
+ private int did;
 	@Column(nullable=false)
  private String dname;
 	@Column(nullable=false)
@@ -32,19 +36,29 @@ public class Driver implements Serializable {
  private int drides;
 	@Column(nullable=false)
  private int dsalary;
-	@Column(nullable=false)
- private Vehicle vehicle;
- @ManyToOne
- private User user;
+	@OneToOne
+	private Vehicle vehicle;
+ 	@ManyToOne
+   private User user;
  @OneToMany(mappedBy="driver")
- private List<Route> route;
+ private List<Booking> booking;
  @OneToMany(mappedBy="user",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	@JsonIgnore
 	private List<HelpDesk> HelpDesk;
-public String getDid() {
+	
+	private String dlicence;
+	
+public String getDlicence(){
+	return dlicence;
+}
+public void setDlicence(String dlicence){
+this.dlicence=dlicence;
+}
+	
+public int getDid() {
 	return did;
 }
-public void setDid(String did) {
+public void setDid(int did) {
 	this.did = did;
 }
 public String getDname() {
@@ -84,12 +98,12 @@ public void setDsalary(int dsalary) {
 	this.dsalary = dsalary;
 }
 
-public Vehicle getVehicle() {
+/*public Vehicle getVehicle() {
 	return vehicle;
 }
 public void setVehicle(Vehicle vehicle) {
 	this.vehicle = vehicle;
-}
+}*/
 public User getUser() {
 	return user;
 }
@@ -97,23 +111,17 @@ public void setUser(User user) {
 	this.user = user;
 }
  
-public List<Route> getRoute() {
-	return route;
+public List<Booking> getBooking() {
+	return booking;
 }
-public void setRoute(List<Route> route) {
-	this.route = route;
+public void setBooking(List<Booking> booking) {
+	this.booking = booking;
 }
 @Override
 public String toString() {
 	return "Driver [did=" + did + ", dname=" + dname + ", dphno=" + dphno + ", dadno=" + dadno + ", drating=" + drating
-			+ ", drides=" + drides + ", dsalary=" + dsalary + ", vehicle=" + vehicle + ", user=" + user + ", route="
-			+ route + "]";
-}
-public String getDpass() {
-	return dpass;
-}
-public void setDpass(String dpass) {
-	this.dpass = dpass;
+			+ ", drides=" + drides + ", dsalary=" + dsalary + ",dlicence"+dlicence +"vehicle=" + " " + ", user=" + user + ", booking="
+			+ booking + "]";
 }
  
 }
