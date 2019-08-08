@@ -15,7 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EnableWebMvc
 @ComponentScan(basePackages="com.mphasis.car")
 @EnableAspectJAutoProxy
-@EnableTransactionManagement
+//@EnableTransactionManagement
 public class Appconfig {
       
      @Bean
@@ -30,7 +30,7 @@ public class Appconfig {
      	
      }
      @Bean
-     public LocalSessionFactoryBean getSsessionFactory()
+     public LocalSessionFactoryBean getSessionFactory()
      {
      	LocalSessionFactoryBean sf = new LocalSessionFactoryBean();
      	sf.setDataSource(getDataSource());
@@ -44,7 +44,8 @@ public class Appconfig {
      	return sf;
      	
      }
-   
+     
+
      @Bean
      public WebMvcConfigurerAdapter corsConfigurer() {
       
