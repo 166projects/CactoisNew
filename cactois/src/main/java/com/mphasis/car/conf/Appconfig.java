@@ -23,9 +23,9 @@ public class Appconfig {
      {
      	DriverManagerDataSource ds = new DriverManagerDataSource();
      	ds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-     	ds.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
-     	ds.setUsername("mohit");
-     	ds.setPassword("notforsale");
+     	ds.setUrl("jdbc:oracle:thin:10.96.177.149:1521:xe");
+     ds.setUsername("cacatois");
+     	ds.setPassword("12345");
      	return ds;
      	
      }
@@ -36,7 +36,7 @@ public class Appconfig {
      	sf.setDataSource(getDataSource());
      	Properties props = new Properties();
      	props.put("hibernate.dialect","org.hibernate.dialect.OracleDialect");
-     	props.put("hibernate.hbm2ddl.auto","create");
+     	props.put("hibernate.hbm2ddl.auto","update");
      	props.put("hibernate.show_sql","true");
      	props.put("hibernate.format_sql","true");
      	sf.setHibernateProperties(props);
