@@ -30,6 +30,8 @@ public class Route implements Serializable{
 		private User user;
 		@ManyToOne(fetch=FetchType.EAGER,optional=false)
 		private Driver driver;
+		@ManyToOne
+		private Admin admin;
 		public int getRid() {
 		 return rid;
 		}

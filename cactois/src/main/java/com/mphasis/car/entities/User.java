@@ -30,8 +30,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 	@Column(nullable=false)
 	private String upass;
 	@Column(nullable=false)
-	private String urole;
-	@Column(nullable=false)
 	private long uphnum;
 	@Column(nullable=false)
 	private String ugender;
@@ -76,12 +74,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 	}
 	public void setUpass(String upass) {
 		this.upass = upass;
-	}
-	public String getUrole() {
-		return urole;
-	}
-	public void setUrole(String urole) {
-		this.urole = urole;
 	}
 	public long getUphnum() {
 		return uphnum;
@@ -139,13 +131,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 	}
 	@Override
 	public String toString() {
-		return "User [cid=" + cid + ", uname=" + uname + ", uemail=" + uemail + ", upass=" + upass + ", urole=" + urole
-				+ ", uphnum=" + uphnum + ", ugender=" + ugender + ", uidproof=" + uidproof + ", ucusrating="
-				+ ucusrating + ", emgcontact=" + emgcontact + ", route=" + route + ", booking=" + booking + ", payment="
-				+ payment + ", HelpDesk=" + HelpDesk + "]";
+		return "User [cid=" + cid + ", uname=" + uname + ", uemail=" + uemail + ", upass=" + upass + ", uphnum="
+				+ uphnum + ", ugender=" + ugender + ", uidproof=" + uidproof + ", ucusrating=" + ucusrating
+				+ ", emgcontact=" + emgcontact + ", route=" + route + ", booking=" + booking + ", payment=" + payment
+				+ ", HelpDesk=" + HelpDesk + "]";
 	}
-	 
-	
 
 	}
 

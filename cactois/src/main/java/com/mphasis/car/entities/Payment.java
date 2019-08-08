@@ -23,7 +23,8 @@ import javax.persistence.OneToOne;
 		
 		@OneToOne
 		private Booking booking;
-		
+		@ManyToOne
+		private Admin admin;
 		@ManyToOne
 		private User user;
 

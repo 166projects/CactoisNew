@@ -19,6 +19,8 @@ private String compliant;
 @ManyToOne
 private User user;
 @ManyToOne
+private Admin admin;
+@ManyToOne
 private Driver driver;
 public Driver getDriver() {
 	return driver;

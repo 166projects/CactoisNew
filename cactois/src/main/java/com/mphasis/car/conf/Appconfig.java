@@ -24,8 +24,8 @@ public class Appconfig {
      	DriverManagerDataSource ds = new DriverManagerDataSource();
      	ds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
      	ds.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
-     	ds.setUsername("cacatois");
-     	ds.setPassword("12345");
+     	ds.setUsername("mohit");
+     	ds.setPassword("notforsale");
      	return ds;
      	
      }

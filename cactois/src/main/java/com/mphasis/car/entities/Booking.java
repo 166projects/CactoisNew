@@ -45,6 +45,9 @@ public class Booking implements Serializable{
 	@ManyToOne
 	private User user;
 	
+	@ManyToOne
+	private Admin admin;
+	
 	@OneToOne
 	private Payment payment;
 	
