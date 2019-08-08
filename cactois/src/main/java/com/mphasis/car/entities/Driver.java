@@ -18,7 +18,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Driver implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
- private int did;
+ private String did;
+	private String dpass;
 	@Column(nullable=false)
  private String dname;
 	@Column(nullable=false)
@@ -40,10 +41,10 @@ public class Driver implements Serializable {
  @OneToMany(mappedBy="user",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	@JsonIgnore
 	private List<HelpDesk> HelpDesk;
-public int getDid() {
+public String getDid() {
 	return did;
 }
-public void setDid(int did) {
+public void setDid(String did) {
 	this.did = did;
 }
 public String getDname() {
@@ -107,6 +108,12 @@ public String toString() {
 	return "Driver [did=" + did + ", dname=" + dname + ", dphno=" + dphno + ", dadno=" + dadno + ", drating=" + drating
 			+ ", drides=" + drides + ", dsalary=" + dsalary + ", vehicle=" + vehicle + ", user=" + user + ", route="
 			+ route + "]";
+}
+public String getDpass() {
+	return dpass;
+}
+public void setDpass(String dpass) {
+	this.dpass = dpass;
 }
  
 }
