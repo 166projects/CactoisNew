@@ -1,0 +1,59 @@
+.wheel
+{
+    width:100px;
+    height : 100px;
+    position: relative;
+    float: left;
+    animation: move 2s 1 alternate;
+    animation-delay: 2s;
+}
+.wheel2
+{
+    width:100px;
+    height : 100px;
+    position: relative;
+    float: right;
+    animation: move2 2s 1 alternate;
+    animation-delay: 2s;
+}
+@keyframes move
+{
+    0%
+    {
+        border-radius: 1%;
+        left : 0px;
+        background-color: aquamarine;
+    }
+    50%
+    {
+        border-radius: 50%;
+        content : "caca";
+    }
+    100%
+    {
+        border-radius: 100%;
+        left : 700px;
+        background-color:cornflowerblue;
+    }
+}
+@keyframes move2
+{
+    0%
+    {
+        border-radius: 1%;
+        right : 0px;
+        background-color: aquamarine;
+    }
+    50%
+    {
+        border-radius: 50%;
+        content : "tois";
+    }
+    100%
+    {
+        border-radius: 100%;
+        right : 600px;
+        background-color:cornflowerblue;
+    }
+}
+ 

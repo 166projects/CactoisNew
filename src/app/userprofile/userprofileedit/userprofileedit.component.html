@@ -1,0 +1,28 @@
+<br/>
+<div> 
+    <p>Logged in as<span> {{userclass.uname}}</span></p>
+  <form #editForm=ngForm (ngSubmit)="edit()">
+<fieldset>
+<legend>Edit it</legend>
+Name : <input type="text" name="uname" class="form-control"  [(ngModel)]="uname" > 
+<br/>
+ 
+Password : <input type="text" name="upass" class="form-control"  [(ngModel)]="upass"> 
+<br/> 
+ 
+Contact_Number : <input type="number" name="uphnum" class="form-control"  [(ngModel)]="uphnum"> 
+<br/>
+ 
+Emg_Contact_Number : <input type="number" name="uephnum" class="form-control"  [(ngModel)]="uephnum"> 
+<br/>
+ 
+Current_Address : <input type="text" name="address" class="form-control"  [(ngModel)]="Current_Address">
+<br/>
+ 
+<input type="submit" name="submit" value="update" class="btn btn-primary"/>
+ 
+<button class="btn btn-primary" type="reset">Cancel</button>
+ <br/>
+   
+</fieldset>
+</form>

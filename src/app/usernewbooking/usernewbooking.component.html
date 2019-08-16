@@ -1,0 +1,110 @@
+<p>usernewbooking works!</p>
+<form (ngSubmit)="startbooking()">
+        <div class="form-group">
+                <label for="name">Location</label>
+                <input type="text" placeholder="from" id="location" name="location" class="form-control" [(ngModel)]="location" />
+                <br/>
+                <input type="text" placeholder="to"  id="dest" name="dest" class="form-control" [(ngModel)]="dest" />
+              </div>
+             
+              <div class="panel-footer">
+                <button class="btn btn-primary" type="submit" id="search">Search Vehicle</button>
+        
+              </div> 
+            </form>
+              <div class="vech" *ngIf = "showDetails">
+                <table>
+                  <tr>
+                    <th>Vehicle NO</th>
+                    <th>Type</th>
+                    <th>Number of seats</th>
+                    <th>Status</th>
+                    <th>Driver Phone Number</th>
+                    <th>Booking Response</th>
+                  </tr>
+                  <tr *ngFor = 'let vehicle of uservehicleclass'>
+                    <td>{{vehicle.vno}}</td>
+                    <td>{{vehicle.vtype}}</td>
+                    <td>{{vehicle.vseats}}</td>
+                    <td>{{vehicle.vstatus}}</td>
+                    <td>{{vehicle.driver.dphno}}</td>
+                    <td>
+                        <button class="btn btn-primary"  type="submit" (click)="selectvechicle(vehicle)"  id="confirm">Confirm Booking</button>
+                          
+                        <button class="btn btn-primary" type="reset" id="cancel">Cancel Booking</button>
+
+                    </td>
+                    
+                  </tr>
+                  <tr *ngIf="!uservehicleclass || uservehicleclass.length == 0">
+                    <td  colspan="6">No Vehicles nearBy U</td>
+                  </tr>
+                  </table>
+                </div>
+
+<div class="card m-3" *ngIf = "paymentDetails">
+    <h5 class="card-header">Payment</h5>
+    <div class="vech"  >
+        <table>
+          <tr>
+            <th>Vehicle NO</th>
+            <th>Type</th>
+            <th>Number of seats</th>
+            <th>Driver Name</th>
+            <th>Driver Phone Number</th>
+            <th>Fare</th>
+          </tr>
+          <tr *ngFor = 'let vehicle of uservehicleclass'>
+            <td>{{vehicleInfo.vno}}</td>
+            <td>{{vehicleInfo.vtype}}</td>
+            <td>{{vehicleInfo.vseats}}</td>
+            <td>{{vehicleInfo.driver.dname}}</td>
+            <td>{{vehicleInfo.driver.dphno}}</td>
+            <td>{{fare}}</td>
+          </tr>
+      </table>
+        </div>
+        <br/>
+        <br/>
+    <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                 <div class="form-group col-5">
+                    <label>Card No</label>
+                    <input type="number" formControlName="cardno" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cardno.errors }" />
+                    <div *ngIf="submitted && f.cardno.errors" class="invalid-feedback">
+                        <div *ngIf="f.cardno.errors.required">cardno is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-5">
+                    <label>Card Name</label>
+                    <input type="text" formControlName="cardname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cardname.errors }" />
+                    <div *ngIf="submitted && f.cardname.errors" class="invalid-feedback">
+                        <div *ngIf="f.cardname.errors.required">Card Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-5">
+                    <label>CVV</label>
+                    <input type="number" formControlName="cvv" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cvv.errors }" />
+                    <div *ngIf="submitted && f.cvv.errors" class="invalid-feedback">
+                        <div *ngIf="f.cvv.errors.required">cvv is required</div>
+                    </div>
+                </div>
+            
+            <div class="form-group">
+                <label>exp date</label>
+                <input type="text" formControlName="expdate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.expdate.errors }" />
+                <div *ngIf="submitted && f.expdate.errors" class="invalid-feedback">
+                    <div *ngIf="f.expdate.errors.required">Date  is required</div>
+                    
+                </div>
+            </div>
+        </div>
+             
+        <div class="text-center">
+            <button class="btn btn-primary mr-1" (click)="book()">Pay</button>
+                       
+        </div>
+        </form>
+    </div>
+</div>

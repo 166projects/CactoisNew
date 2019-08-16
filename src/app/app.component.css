@@ -1,0 +1,50 @@
+lihts
+{
+    padding: 0px;
+    margin: 0px;
+    background-color: black;
+}
+ 
+ss1{
+    text-align: center;
+}
+H1
+{
+   font-family: cursive;
+   font-size: 40px;
+   text-align: center;
+     
+   animation: lts 1s 1 alternate;
+   animation-delay: 1s;
+
+}
+@keyframes lts
+{
+    0%
+    {
+        letter-spacing: 100px;
+        
+        color: aqua
+    }
+    20%
+    {
+        color: aquamarine
+    }
+    40%
+    {
+        color:beige
+    }
+    60%
+    {
+        color: black
+    }
+    80%{
+        color:chocolate
+    }
+    100%
+    {
+        letter-spacing: 0px;
+         
+        color: darkgreen
+    }
+}
